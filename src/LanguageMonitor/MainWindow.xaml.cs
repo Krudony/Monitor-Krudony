@@ -89,9 +89,23 @@ namespace LanguageMonitor
             if (_isFollowCursor)
             {
                 NativeMethods.GetCursorPos(out var point);
+
+                // Get DPI of the monitor where the cursor is located
+                var monitor = NativeMethods.MonitorFromPoint(point, NativeMethods.MONITOR_DEFAULTTONEAREST);
+                double dpiScaleX = 1.0;
+                double dpiScaleY = 1.0;
+
+                if (monitor != IntPtr.Zero &&
+                    NativeMethods.GetDpiForMonitor(monitor, NativeMethods.MDT_EFFECTIVE_DPI, out uint dpiX, out uint dpiY) == 0)
+                {
+                    // 96 is the standard DPI (100%)
+                    dpiScaleX = 96.0 / dpiX;
+                    dpiScaleY = 96.0 / dpiY;
+                }
+
                 // Offset slightly so it doesn't block click
-                this.Left = point.X + 15;
-                this.Top = point.Y + 15;
+                this.Left = (point.X * dpiScaleX) + 15;
+                this.Top = (point.Y * dpiScaleY) + 15;
             }
         }
 
