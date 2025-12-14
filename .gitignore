@@ -7,6 +7,6 @@ Thumbs.db
 [Oo]bj/
 .vs/
 *.user
-*.exe
 *.pdb
 *.cache
+*.exe
