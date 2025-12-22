@@ -15,29 +15,38 @@
 | `Ctrl+Shift+Z` | Card ตาม cursor |
 | `Ctrl+Alt+X` | Card กลับมุมขวาบน |
 
-## Setup & Installation
+## Requirements
 
-เนื่องจากโปรแกรมถูกเขียนใหม่ด้วย C# .NET 8 เพื่อประสิทธิภาพที่ดีขึ้น คุณจำเป็นต้องเตรียมไฟล์ Execute ก่อนใช้งานครั้งแรก:
+> ⚠️ **ต้องติดตั้ง .NET 8 Desktop Runtime ก่อนใช้งาน**
+> 
+> ดาวน์โหลดได้ที่: https://dotnet.microsoft.com/download/dotnet/8.0
+> 
+> เลือก **".NET Desktop Runtime 8.x"** สำหรับ **Windows x64**
 
-1. **Build โปรแกรม:**
-   - ดับเบิ้ลคลิกไฟล์ `Build.bat`
-   - รอจนเสร็จ จะได้ไฟล์ `LanguageMonitor.exe` ขึ้นมา
+## Quick Start (ใช้ไฟล์ที่ Build แล้ว)
 
-2. **เปิดใช้งาน:**
-   - ดับเบิ้ลคลิก `Start.vbs` หรือ `LanguageMonitor.exe` เพื่อเริ่มทำงาน
+1. ติดตั้ง .NET 8 Desktop Runtime (ถ้ายังไม่มี)
+2. ดับเบิ้ลคลิก `LanguageMonitor.exe` เพื่อเริ่มใช้งาน
+3. (Optional) ดับเบิ้ลคลิก `Install.bat` เพื่อให้เปิดเองตอนเปิดเครื่อง
 
-3. **ติดตั้ง Auto-start (Optional):**
-   - ดับเบิ้ลคลิก `Install.bat` เพื่อให้โปรแกรมเปิดเองตอนเปิดเครื่อง
+## Build from Source (สำหรับ Developer)
+
+ถ้าต้องการ Build ใหม่จาก Source Code:
+
+1. ติดตั้ง [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+2. ดับเบิ้ลคลิก `Build.bat`
+3. รอจนเสร็จ จะได้ไฟล์ `LanguageMonitor.exe`
 
 ## Files
 | File | Description |
 |------|-------------|
-| `Build.bat` | **สร้างไฟล์โปรแกรม** (ต้องรันครั้งแรก) |
-| `Start.vbs` | เปิดโปรแกรม (แบบซ่อนหน้าต่าง Console) |
+| `LanguageMonitor.exe` | ไฟล์โปรแกรมหลัก |
+| `Start.vbs` | เปิดโปรแกรม (แบบซ่อน Console) |
 | `StopMonitor.bat` | ปิดโปรแกรม |
 | `Install.bat` | ติดตั้ง Auto-start กับ Windows |
 | `Uninstall.bat` | ถอน Auto-start |
+| `Build.bat` | Build โปรแกรมจาก Source |
 
-## Requirements
-- Windows 10/11
-- .NET 8 Runtime (ถ้าใช้ไฟล์ Build แบบ Self-Contained จะไม่จำเป็นต้องลงแยก)
+## System Requirements
+- Windows 10/11 (64-bit)
+- .NET 8 Desktop Runtime

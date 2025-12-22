@@ -15,12 +15,12 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
-echo Building Self-Contained Single File executable...
-echo This may take a minute...
+echo Building Framework-Dependent Single File executable...
+echo (Requires .NET 8 Runtime on target machine)
 echo.
 
-REM Build command
-dotnet publish src/LanguageMonitor/LanguageMonitor.csproj -c Release -r win-x64 -p:PublishSingleFile=true --self-contained true -o build_output
+REM Build command - Framework-Dependent for smaller file size
+dotnet publish src/LanguageMonitor/LanguageMonitor.csproj -c Release -r win-x64 -p:PublishSingleFile=true --self-contained false -o build_output
 
 if %errorlevel% neq 0 (
     echo.
